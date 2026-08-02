@@ -1,0 +1,41 @@
+header {
+  padding: 24px;
+  background-color: #1f2937;
+  color: white;
+}
+
+header h1 {
+  margin-bottom: 8px;
+}
+
+header p {
+  margin-bottom: 16px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #93c5fd;
+}
+
+nav button {
+  margin-left: auto;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+main {
+  padding: 30px;
+}
