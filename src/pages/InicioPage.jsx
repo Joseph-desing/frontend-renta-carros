@@ -1,10 +1,4 @@
-function InicioPage() {
-  return (
-    <section>
-      <h2>Inicio</h2>
-      <p>Bienvenido al sistema de renta de carros.</p>
-    </section>
-  );
-}
-
+import { Link } from "react-router-dom";
+import "./InicioPage.css";
+function InicioPage(){return <section className="page-section"><div className="welcome-panel"><p className="welcome-eyebrow">Panel administrativo</p><h2>Todo lo que necesitas para gestionar tu flota.</h2><p>Administra clientes, vehículos y reservas desde un espacio centralizado, claro y eficiente.</p></div><div className="quick-grid"><Link className="quick-card" to="/clientes"><span className="quick-icon">01</span><h3>Clientes</h3><p>Consulta y administra la información de tus clientes.</p></Link><Link className="quick-card" to="/vehiculos"><span className="quick-icon">02</span><h3>Vehículos</h3><p>Controla la disponibilidad y los datos de tu flota.</p></Link><Link className="quick-card" to="/reservas"><span className="quick-icon">03</span><h3>Reservas</h3><p>Gestiona las reservas y su estado operativo.</p></Link></div></section>}
 export default InicioPage;

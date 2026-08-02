@@ -109,7 +109,7 @@ function ClientesPage() {
   }
 
   return (
-    <section>
+    <section className="page-section">
       <h2>Clientes</h2>
 
       <ClienteForm

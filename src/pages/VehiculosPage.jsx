@@ -109,7 +109,7 @@ function VehiculosPage() {
   }
 
   return (
-    <section>
+    <section className="page-section">
       <h2>Vehículos</h2>
 
       <VehiculoForm

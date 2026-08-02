@@ -1,3 +1,5 @@
+import "./Table.css";
+
 function VehiculoTable({
   vehiculos,
   onEditar,
@@ -8,10 +10,11 @@ function VehiculoTable({
   }
 
   return (
-    <div>
+    <div className="table-card">
       <h3>Lista de vehículos</h3>
 
-      <table>
+      <div className="table-scroll">
+      <table className="data-table">
         <thead>
           <tr>
             <th>ID</th>
@@ -36,10 +39,11 @@ function VehiculoTable({
               <td>{vehiculo.anio}</td>
               <td>{vehiculo.color}</td>
               <td>${Number(vehiculo.precio_dia).toFixed(2)}</td>
-              <td>{vehiculo.estado}</td>
+              <td><span className={`badge badge-${vehiculo.estado.toLowerCase()}`}>{vehiculo.estado}</span></td>
 
-              <td>
+              <td><div className="table-actions">
                 <button
+                  className="action-btn action-edit"
                   type="button"
                   onClick={() => onEditar(vehiculo)}
                 >
@@ -47,16 +51,18 @@ function VehiculoTable({
                 </button>
 
                 <button
+                  className="action-btn action-delete"
                   type="button"
                   onClick={() => onEliminar(vehiculo.id)}
                 >
                   Eliminar
                 </button>
-              </td>
+              </div></td>
             </tr>
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }

@@ -126,7 +126,7 @@ function ReservasPage() {
   }
 
   return (
-    <section>
+    <section className="page-section">
       <h2>Reservas</h2>
 
       <ReservaForm

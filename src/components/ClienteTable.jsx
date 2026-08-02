@@ -1,3 +1,5 @@
+import "./Table.css";
+
 function ClienteTable({
   clientes,
   onEditar,
@@ -8,10 +10,11 @@ function ClienteTable({
   }
 
   return (
-    <div>
-      <h3>Lista de clientes</h3>
+    <div className="table-card">
+      <h3 className="table-title">Lista de clientes</h3>
+      <div className="table-scroll">
 
-      <table>
+      <table className="data-table">
         <thead>
           <tr>
             <th>ID</th>
@@ -40,8 +43,9 @@ function ClienteTable({
                 {cliente.licencia_conducir || "Sin fecha"}
               </td>
 
-              <td>
+              <td><div className="table-actions">
                 <button
+                  className="action-btn action-edit"
                   type="button"
                   onClick={() => onEditar(cliente)}
                 >
@@ -49,16 +53,18 @@ function ClienteTable({
                 </button>
 
                 <button
+                  className="action-btn action-delete"
                   type="button"
                   onClick={() => onEliminar(cliente.id)}
                 >
                   Eliminar
                 </button>
-              </td>
+              </div></td>
             </tr>
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }

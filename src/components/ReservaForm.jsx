@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./Form.css";
 
 const formularioInicial = {
   cliente_id: "",
@@ -62,7 +63,7 @@ function ReservaForm({
   }
 
   return (
-    <form onSubmit={manejarEnvio}>
+    <form className="form-card" onSubmit={manejarEnvio}>
       <h3>
         {reservaSeleccionada
           ? "Editar reserva"
@@ -145,15 +146,10 @@ function ReservaForm({
         <option value="CANCELADA">CANCELADA</option>
       </select>
 
-      <button type="submit">
-        {reservaSeleccionada ? "Actualizar" : "Guardar"}
-      </button>
-
-      {reservaSeleccionada && (
-        <button type="button" onClick={manejarCancelacion}>
-          Cancelar
-        </button>
-      )}
+      <div className="form-actions">
+        <button className="btn btn-primary" type="submit">{reservaSeleccionada ? "Actualizar" : "Guardar"}</button>
+        {reservaSeleccionada && <button className="btn btn-secondary" type="button" onClick={manejarCancelacion}>Cancelar</button>}
+      </div>
     </form>
   );
 }

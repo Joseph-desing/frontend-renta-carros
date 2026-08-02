@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./Form.css";
 
 const formularioInicial = {
   cedula: "",
@@ -59,7 +60,7 @@ function ClienteForm({
   }
 
   return (
-    <form onSubmit={manejarEnvio}>
+    <form className="form-card" onSubmit={manejarEnvio}>
       <h3>
         {clienteSeleccionado
           ? "Editar cliente"
@@ -135,15 +136,10 @@ function ClienteForm({
         onChange={manejarCambio}
       />
 
-      <button type="submit">
-        {clienteSeleccionado ? "Actualizar" : "Guardar"}
-      </button>
-
-      {clienteSeleccionado && (
-        <button type="button" onClick={manejarCancelacion}>
-          Cancelar
-        </button>
-      )}
+      <div className="form-actions">
+        <button className="btn btn-primary" type="submit">{clienteSeleccionado ? "Actualizar" : "Guardar"}</button>
+        {clienteSeleccionado && <button className="btn btn-secondary" type="button" onClick={manejarCancelacion}>Cancelar</button>}
+      </div>
     </form>
   );
 }

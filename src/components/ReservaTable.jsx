@@ -1,3 +1,5 @@
+import "./Table.css";
+
 function ReservaTable({
   reservas,
   onEditar,
@@ -8,10 +10,11 @@ function ReservaTable({
   }
 
   return (
-    <div>
+    <div className="table-card">
       <h3>Lista de reservas</h3>
 
-      <table>
+      <div className="table-scroll">
+      <table className="data-table">
         <thead>
           <tr>
             <th>ID</th>
@@ -49,10 +52,11 @@ function ReservaTable({
                 ${Number(reserva.precio_total).toFixed(2)}
               </td>
 
-              <td>{reserva.estado}</td>
+              <td><span className={`badge badge-${reserva.estado.toLowerCase()}`}>{reserva.estado}</span></td>
 
-              <td>
+              <td><div className="table-actions">
                 <button
+                  className="action-btn action-edit"
                   type="button"
                   onClick={() => onEditar(reserva)}
                 >
@@ -60,16 +64,18 @@ function ReservaTable({
                 </button>
 
                 <button
+                  className="action-btn action-delete"
                   type="button"
                   onClick={() => onEliminar(reserva.id)}
                 >
                   Eliminar
                 </button>
-              </td>
+              </div></td>
             </tr>
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }

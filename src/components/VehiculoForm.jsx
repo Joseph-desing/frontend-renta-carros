@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./Form.css";
 
 const formularioInicial = {
   placa: "",
@@ -62,7 +63,7 @@ function VehiculoForm({
   }
 
   return (
-    <form onSubmit={manejarEnvio}>
+    <form className="form-card" onSubmit={manejarEnvio}>
       <h3>
         {vehiculoSeleccionado
           ? "Editar vehículo"
@@ -145,15 +146,10 @@ function VehiculoForm({
         <option value="Mantenimiento">Mantenimiento</option>
       </select>
 
-      <button type="submit">
-        {vehiculoSeleccionado ? "Actualizar" : "Guardar"}
-      </button>
-
-      {vehiculoSeleccionado && (
-        <button type="button" onClick={manejarCancelacion}>
-          Cancelar
-        </button>
-      )}
+      <div className="form-actions">
+        <button className="btn btn-primary" type="submit">{vehiculoSeleccionado ? "Actualizar" : "Guardar"}</button>
+        {vehiculoSeleccionado && <button className="btn btn-secondary" type="button" onClick={manejarCancelacion}>Cancelar</button>}
+      </div>
     </form>
   );
 }
